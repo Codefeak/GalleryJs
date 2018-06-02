@@ -113,7 +113,6 @@ function rightBtnFn(event){
   let c = event.target.parentElement.childNodes[1].id;
     if(c==data.length-1){
     c=-1;
-
   }
   c++;
   event.target.parentElement.childNodes[1].src="images\/"+ data[c].src;
@@ -146,8 +145,7 @@ function handleClick(event){
       popUp.className = "popOff";
       popUp.className = "popOn";
       createPopUpContainer();
-      console.dir();
-    if(event.target.id != document.querySelector('.popOn').childNodes[1].id){
+      if(event.target.id != document.querySelector('.popOn').childNodes[1].id){
       popFunction(event);
     }
   }
