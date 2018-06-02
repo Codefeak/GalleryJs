@@ -1,2 +1,2 @@
 #GalleryJs
-#Live website:(https://Codefeak.github.io/Gallery)
+#Live website:(https://Codefeak.github.io/GalleryJs)
