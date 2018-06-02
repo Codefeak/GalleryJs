@@ -35,7 +35,7 @@ function createPhotoHolder(){
     container.appendChild(onePhotoHolder);
     onePhotoHolder.classList.add("box");
     onePhotoHolder.id = "thumbnails"+i;
-    image.src = "images\/thumbnails\/"+data[i].src;
+    image.src = "images\/thumbnails\/"+toCapitalize(data[i].src);
     image.id = i;
     onePhotoHolder.appendChild(image);
     image.name = data[i].firstName + " "+ data[i].lastName;
@@ -73,7 +73,7 @@ const createPopUpContainer = () => {
 function popFunction(event){
 
   img.id = event.target.id;
-  img.src = "images\/" +data[img.id].src;
+  img.src = "images\/" +toCapitalize(data[img.id].src);
   fullName.innerHTML = event.target.name;
   for(i= 0; i<data.length; i++){
     if(event.target.alt === data[i].alt){
@@ -95,7 +95,7 @@ function leftBtnFn(event){
   if(c==0){
     c=data.length;
   };
-  event.target.parentElement.childNodes[1].src="images\/" +data[c-1].src;
+  event.target.parentElement.childNodes[1].src="images\/" +toCapitalize(data[c-1].src);
   document.querySelector('#popup-fullName').innerHTML = data[c-1].firstName +" "+ data[c-1].lastName;
   document.querySelector('#popup-title').innerHTML = data[c-1].title;
   document.querySelector('#popup-nationality').innerHTML = data[c-1].nationality;
@@ -115,7 +115,7 @@ function rightBtnFn(event){
     c=-1;
   }
   c++;
-  event.target.parentElement.childNodes[1].src="images\/"+ data[c].src;
+  event.target.parentElement.childNodes[1].src="images\/"+ toCapitalize(data[c].src);
   document.querySelector('#popup-fullName').innerHTML = data[c].firstName +" "+ data[c].lastName;
   document.querySelector('#popup-title').innerHTML = data[c].title;
   document.querySelector('#popup-nationality').innerHTML = data[c].nationality;
@@ -149,4 +149,8 @@ function handleClick(event){
       popFunction(event);
     }
   }
+}
+
+function toCapitalize(string){
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
